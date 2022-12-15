@@ -1,0 +1,658 @@
+
+ <html lang="en">
+    <head>
+    <title> Home </title>
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+  
+    <meta name="theme-color" content="#5540af" />
+  
+    <meta property="og:site_name" content="Atom Template" />
+  
+    <meta property="og:image" content="//img/social.jpg" />
+  
+    <meta name="twitter:card" content="summary_large_image" />
+  
+    <meta name="twitter:site" content="@tailwindmade" />
+
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
+  
+    <link
+      crossorigin="crossorigin"
+      href="https://fonts.gstatic.com"
+      rel="preconnect"
+    />
+  
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap"
+      rel="preload"
+    />
+  
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  
+    <link
+      crossorigin="anonymous"
+      href="/css/main.min.css"
+      media="screen"
+      rel="stylesheet"
+    />
+    
+    <script
+      defer
+      src="https://unpkg.com/@alpine-collective/toolkit@1.0.0/dist/cdn.min.js"
+    ></script>
+  
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  
+    
+  </head>
+  
+  
+    <body>
+      
+      <div id="main" class="relative">
+        <div
+    x-data="{
+      triggerNavItem(id) {
+          $scroll(id)
+      },
+      triggerMobileNavItem(id) {
+          mobileMenu = false;
+          this.triggerNavItem(id)
+      }
+  }"
+  >
+    <div class="w-full z-50 top-0 py-3 sm:py-5  absolute
+    ">
+    <div class="container flex items-center justify-between">
+      <div>
+        <a href="/">
+          <h1 class="text-center text-gray-400 font-header text-3xl font-semibold uppercase text-white sm:text-3xl lg:text-3xl ">Placement Booster</h1>
+        </a>
+      </div>
+      <div class="hidden lg:block">
+        <ul class="flex items-center">
+          
+          <li class="group pl-6">
+            
+            <span
+              @click="location.href='/home/about'"
+              class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+              >About</span
+            >
+            
+            <span
+              class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+            ></span>
+          </li>
+          <li class="group pl-6">
+            
+            <span
+              @click="triggerNavItem('#about')"
+              class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+              ><%= user.name %></span
+            >
+            
+            <span
+              class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+            ></span>
+          </li>
+          
+          <li class="group pl-6">
+            
+            <span
+              @click="location.href='/logout'"
+              class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+              >Log out</span
+            >
+            
+            <span
+              class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+            ></span>
+          </li>
+        </ul>
+      </div>
+      <div class="block lg:hidden">
+        <button @click="mobileMenu = true">
+          <i class="bx bx-menu text-4xl text-white"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <div
+    class="pointer-events-none fixed inset-0 z-70 min-h-screen bg-black bg-opacity-70 opacity-0 transition-opacity lg:hidden"
+    :class="{ 'opacity-100 pointer-events-auto': mobileMenu }"
+  >
+    <div
+      class="absolute right-0 min-h-screen w-2/3 bg-primary py-4 px-5 shadow md:w-1/3"
+    >
+      <button
+        class="absolute top-0 right-0 mt-4 mr-4"
+        @click="mobileMenu = false"
+      >
+        <img src="/img/icon-close.svg" class="h-10 w-auto" alt="" />
+      </button>
+  
+      <ul class="mt-8 flex flex-col">
+        
+        <li class="py-2">
+          
+          <span
+            @click="triggerMobileNavItem('#about')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >About</span
+          >
+          
+        </li>
+        
+        <li class="py-2">
+          
+          <span
+            @click="triggerMobileNavItem('#services')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Services</span
+          >
+          
+        </li>
+        
+        <li class="py-2">
+          
+          <span
+            @click="triggerMobileNavItem('#portfolio')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Portfolio</span
+          >
+          
+        </li>
+        
+        <li class="py-2">
+          
+          <span
+            @click="triggerMobileNavItem('#clients')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Clients</span
+          >
+          
+        </li>
+        
+        <li class="py-2">
+          
+          <span
+            @click="triggerMobileNavItem('#work')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Work</span
+          >
+          
+        </li>
+        
+        <li class="py-2">
+          
+          <span
+            @click="triggerMobileNavItem('#statistics')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Statistics</span
+          >
+          
+        </li>
+        
+        <li class="py-2">
+          
+          <span
+            @click="triggerMobileNavItem('#blog')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Blog</span
+          >
+          
+        </li>
+        
+        <li class="py-2">
+          
+          <span
+            @click="triggerMobileNavItem('#contact')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Contact</span
+          >
+          
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+        <div><div
+    class="relative bg-cover bg-center bg-no-repeat py-8"
+    style="background-image: url(/img/bg-hero.jpg)"
+  >
+    <div
+      class="absolute inset-0 z-20 bg-gradient-to-r from-hero-gradient-from to-hero-gradient-to bg-cover bg-center bg-no-repeat"
+    ></div>
+  </div>
+  
+  
+  <div class="container py-16 md:py-20" id="services">
+    <h2
+      class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
+    >
+      MCQ Test
+    </h2>
+  
+    <div
+      class="grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 md:gap-10 md:pt-12 lg:grid-cols-3"
+    >
+      <div class="group rounded h-50 w-50 px-5 py-8 shadow hover:bg-primary">
+        <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+          <div class="hidden group-hover:block">
+            <img
+              src="/img/icon-development-white.svg"
+              alt="development icon"
+            />
+          </div>
+          <div class="block group-hover:hidden">
+            <img
+              src="/img/icon-development-black.svg"
+              alt="development icon"
+            />
+          </div>
+        </div>
+        <div class="text-center">
+          <h3
+            class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
+          >
+            <a class="cursor-pointer" href="/home/take-test?subject=oops" >OOPS</a>
+          </h3>
+          <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
+            Test yourself.
+          </p>
+        </div>
+      </div>
+      <div class="group rounded px-5 py-12 shadow hover:bg-primary">
+        <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+          <div class="hidden group-hover:block">
+            <img
+              src="/img/icon-content-white.svg"
+              alt="content marketing icon"
+            />
+          </div>
+          <div class="block group-hover:hidden">
+            <img
+              src="/img/icon-content-black.svg"
+              alt="content marketing icon"
+            />
+          </div>
+        </div>
+        <div class="text-center">
+          <h3
+            class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
+          >
+          <a class="cursor-pointer" href="/home/take-test?subject=dbms" >DBMS</a>
+          </h3>
+          <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
+            Test yourself.
+          </p>
+        </div>
+      </div>
+      <div class="group rounded px-5 py-12 shadow hover:bg-primary">
+        <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+          <div class="hidden group-hover:block">
+            <img
+              src="/img/icon-mobile-white.svg"
+              alt="Mobile Application icon"
+            />
+          </div>
+          <div class="block group-hover:hidden">
+            <img
+              src="/img/icon-mobile-black.svg"
+              alt="Mobile Application icon"
+            />
+          </div>
+        </div>
+        <div class="text-center">
+          <h3
+            class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
+          >
+            <a class="cursor-pointer" href="/home/take-test?subject=os" >OS</a>
+          </h3>
+          <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
+            Test yourself.
+          </p>
+        </div>
+      </div>
+      <div class="group rounded px-5 py-12 shadow hover:bg-primary">
+        <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+          <div class="hidden group-hover:block">
+            <img
+              src="/img/icon-graphics-white.svg"
+              alt="Graphic Design icon"
+            />
+          </div>
+          <div class="block group-hover:hidden">
+            <img
+              src="/img/icon-graphics-black.svg"
+              alt="Graphic Design icon"
+            />
+          </div>
+        </div>
+        <div class="text-center">
+          <h3
+            class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
+          >
+            <a class="cursor-pointer" href="/home/take-test?subject=ds" >Data Structure</a>
+          </h3>
+          <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
+            Test yourself.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="container py-16 md:py-20" id="services">
+    <h2
+      class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
+    >
+      Flash Cards
+    </h2>
+  
+    <div
+      class="grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 md:gap-10 md:pt-12 lg:grid-cols-3"
+    >
+      <div class="group rounded h-50 w-50 px-5 py-8 shadow hover:bg-primary">
+        <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+          <div class="hidden group-hover:block">
+            <img
+              src="/img/icon-development-white.svg"
+              alt="development icon"
+            />
+          </div>
+          <div class="block group-hover:hidden">
+            <img
+              src="/img/icon-development-black.svg"
+              alt="development icon"
+            />
+          </div>
+        </div>
+        <div class="text-center">
+          <h3
+            class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
+          >
+            <a class="cursor-pointer" href="/home/flashcards?subject=oops" >OOPS</a>
+          </h3>
+          <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
+            Quick revision
+          </p>
+        </div>
+      </div>
+      <div class="group rounded px-5 py-12 shadow hover:bg-primary">
+        <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+          <div class="hidden group-hover:block">
+            <img
+              src="/img/icon-content-white.svg"
+              alt="content marketing icon"
+            />
+          </div>
+          <div class="block group-hover:hidden">
+            <img
+              src="/img/icon-content-black.svg"
+              alt="content marketing icon"
+            />
+          </div>
+        </div>
+        <div class="text-center">
+          <h3
+            class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
+          >
+          <a class="cursor-pointer" href="/home/flashcards?subject=dbms" >DBMS</a>
+          </h3>
+          <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
+            Quick revision
+          </p>
+        </div>
+      </div>
+      <div class="group rounded px-5 py-12 shadow hover:bg-primary">
+        <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+          <div class="hidden group-hover:block">
+            <img
+              src="/img/icon-mobile-white.svg"
+              alt="Mobile Application icon"
+            />
+          </div>
+          <div class="block group-hover:hidden">
+            <img
+              src="/img/icon-mobile-black.svg"
+              alt="Mobile Application icon"
+            />
+          </div>
+        </div>
+        <div class="text-center">
+          <h3
+            class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
+          >
+            <a class="cursor-pointer" href="/home/flashcards?subject=os" >OS</a>
+          </h3>
+          <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
+            Quick revision
+          </p>
+        </div>
+      </div>
+      <div class="group rounded px-5 py-12 shadow hover:bg-primary">
+        <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+          <div class="hidden group-hover:block">
+            <img
+              src="/img/icon-graphics-white.svg"
+              alt="Graphic Design icon"
+            />
+          </div>
+          <div class="block group-hover:hidden">
+            <img
+              src="/img/icon-graphics-black.svg"
+              alt="Graphic Design icon"
+            />
+          </div>
+        </div>
+        <div class="text-center">
+          <h3
+            class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
+          >
+            <a class="cursor-pointer" href="/home/flashcards?subject=ds" >Data Structure</a>
+          </h3>
+          <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
+            Quick revision
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="container py-16 md:py-20" id="services">
+    <h2
+      class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
+    >
+      Notes
+    </h2>
+  
+    <div
+      class="grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 md:gap-10 md:pt-12 lg:grid-cols-3"
+    >
+      <div class="group rounded h-50 w-50 px-5 py-8 shadow hover:bg-primary">
+        <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+          <div class="hidden group-hover:block">
+            <img
+              src="/img/icon-development-white.svg"
+              alt="development icon"
+            />
+          </div>
+          <div class="block group-hover:hidden">
+            <img
+              src="/img/icon-development-black.svg"
+              alt="development icon"
+            />
+          </div>
+        </div>
+        <div class="text-center">
+          <h3
+            class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
+          >
+            <a class="cursor-pointer" src="" >OOPS</a>
+          </h3>
+          <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
+            Learn through Notes
+          </p>
+        </div>
+      </div>
+      <div class="group rounded px-5 py-12 shadow hover:bg-primary">
+        <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+          <div class="hidden group-hover:block">
+            <img
+              src="/img/icon-content-white.svg"
+              alt="content marketing icon"
+            />
+          </div>
+          <div class="block group-hover:hidden">
+            <img
+              src="/img/icon-content-black.svg"
+              alt="content marketing icon"
+            />
+          </div>
+        </div>
+        <div class="text-center">
+          <h3
+            class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
+          >
+          <a class="cursor-pointer" src="" >DBMS</a>
+          </h3>
+          <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
+            Learn Through Notes
+          </p>
+        </div>
+      </div>
+      <div class="group rounded px-5 py-12 shadow hover:bg-primary">
+        <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+          <div class="hidden group-hover:block">
+            <img
+              src="/img/icon-mobile-white.svg"
+              alt="Mobile Application icon"
+            />
+          </div>
+          <div class="block group-hover:hidden">
+            <img
+              src="/img/icon-mobile-black.svg"
+              alt="Mobile Application icon"
+            />
+          </div>
+        </div>
+        <div class="text-center">
+          <h3
+            class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
+          >
+            <a class="cursor-pointer" src="" >OS</a>
+          </h3>
+          <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
+            Learn through notes
+          </p>
+        </div>
+      </div>
+      <div class="group rounded px-5 py-12 shadow hover:bg-primary">
+        <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+          <div class="hidden group-hover:block">
+            <img
+              src="/img/icon-graphics-white.svg"
+              alt="Graphic Design icon"
+            />
+          </div>
+          <div class="block group-hover:hidden">
+            <img
+              src="/img/icon-graphics-black.svg"
+              alt="Graphic Design icon"
+            />
+          </div>
+        </div>
+        <div class="text-center">
+          <h3
+            class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
+          >
+            <a class="cursor-pointer" src="" >Data Structure</a>
+          </h3>
+          <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
+            Learn Through Notes
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  <div id="scores my-2">
+    <h2
+      class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
+    >
+      MCQ Test
+    </h2>
+    <table>
+        <tr>
+            <th>S.No</th>
+            <th>Subject</th>
+            <th>Score</th>
+        </tr>
+        
+            <% user.scores.forEach((score,ind)=>{ %>
+                <tr>
+                    <td><%=ind+1%></td>
+                    <td><%=score.subject%></td>
+                    <td><%=score.marks%></td>
+                </tr>
+            <% }) %> 
+        
+    </table>
+</div>
+  
+  
+  
+  <div class="bg-primary">
+    <div class="container flex flex-col justify-between py-6 sm:flex-row">
+      <p class="text-center font-body text-white md:text-left">
+        @ Placement Booster
+      </p>
+      <div class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0">
+        <a href="/">
+          <i
+            class="bx bxl-facebook-square text-2xl text-white hover:text-yellow"
+          ></i>
+        </a>
+        <a href="/" class="pl-4">
+          <i class="bx bxl-twitter text-2xl text-white hover:text-yellow"></i>
+        </a>
+        <a href="/" class="pl-4">
+          <i class="bx bxl-dribbble text-2xl text-white hover:text-yellow"></i>
+        </a>
+        <a href="/" class="pl-4">
+          <i class="bx bxl-linkedin text-2xl text-white hover:text-yellow"></i>
+        </a>
+        <a href="/" class="pl-4">
+          <i class="bx bxl-instagram text-2xl text-white hover:text-yellow"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+      </div>
+  
+      <script src="/assets/js/main.js"></script>
+  
+      
+    </body>
+  </html>
+  
